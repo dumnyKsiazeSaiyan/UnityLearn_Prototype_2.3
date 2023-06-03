@@ -11,8 +11,13 @@ public class SpawnManager : MonoBehaviour
     private int leftAndRightSpawnXPos = 30;
     private int leftAndRightSpawnZTopPos = 17;
     private int leftAndRightSpawnZBottomPos = 0;
+
+    private GameManager gameManager;
+
     private void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         Invoke("SpawnRandomAnimalTop", startDelay);
         Invoke("SpawnRandomAnimalFromLeft", startDelay);
         Invoke("SpawnRandomAnimalFromRight", startDelay);
@@ -28,7 +33,9 @@ public class SpawnManager : MonoBehaviour
             animalPrefab[animalIndex].transform.rotation = Quaternion.Euler(0, 180, 0));
 
         float spawnInterval = Random.Range(2, 6);
-        Invoke("SpawnRandomAnimalTop", spawnInterval);
+
+        if (gameManager.Lives != 0)
+            Invoke("SpawnRandomAnimalTop", spawnInterval);
     }
 
     private void SpawnRandomAnimalFromLeft()
@@ -38,10 +45,12 @@ public class SpawnManager : MonoBehaviour
 
         Instantiate(animalPrefab[animalIndex],
             new Vector3(-leftAndRightSpawnXPos, 0, zPosition),
-            animalPrefab[animalIndex].transform.rotation = Quaternion.Euler(0,90,0));
+            animalPrefab[animalIndex].transform.rotation = Quaternion.Euler(0, 90, 0));
 
         float spawnInterval = Random.Range(2, 6);
-        Invoke("SpawnRandomAnimalFromLeft", spawnInterval);
+
+        if (gameManager.Lives != 0)
+            Invoke("SpawnRandomAnimalFromLeft", spawnInterval);
     }
 
     private void SpawnRandomAnimalFromRight()
@@ -54,6 +63,8 @@ public class SpawnManager : MonoBehaviour
             animalPrefab[animalIndex].transform.rotation = Quaternion.Euler(0, 270, 0));
 
         float spawnInterval = Random.Range(2, 6);
-        Invoke("SpawnRandomAnimalFromRight", spawnInterval);
+
+        if (gameManager.Lives != 0)
+            Invoke("SpawnRandomAnimalFromRight", spawnInterval);
     }
 }

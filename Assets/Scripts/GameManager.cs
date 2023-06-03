@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
     private int score = 0;
     private int lives = 3;
 
@@ -14,15 +13,8 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Lives= {lives}");
     }
 
-    private void Update()
-    {
-
-    }
-
-
     public void AddLives(int value)
     {
-
         lives += value;
         if (lives <= 0)
             Debug.Log("Game Over player was killed by animal");
@@ -34,4 +26,7 @@ public class GameManager : MonoBehaviour
         score += values;
         Debug.Log($"Score = {score}");
     }
+
+    public int Lives { get; }
+
 }
