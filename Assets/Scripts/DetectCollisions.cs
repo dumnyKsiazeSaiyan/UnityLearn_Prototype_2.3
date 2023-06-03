@@ -4,11 +4,25 @@ using UnityEngine;
 
 public class DetectCollisions : MonoBehaviour
 {
+
+    private AnimalHunger animalHunger;
+
+    private void Start()
+    {
+        animalHunger = GetComponent<AnimalHunger>();
+    }
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
-        Destroy(other.gameObject);
-        if (other.gameObject.CompareTag("Animals"))
-            Debug.Log("Triggered!");
+
+        if (other.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+
+        if (other.CompareTag("Food"))
+        {
+            animalHunger.FeedAnamial(1);
+            Destroy(other.gameObject);
+        }
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8029084038552759939}
   m_Layer: 0
   m_Name: Food
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topBound: 30
   lowerBound: -30
+  rightLeftBound: 35
 --- !u!65 &8029084038552759939
 BoxCollider:
   m_ObjectHideFlags: 0
