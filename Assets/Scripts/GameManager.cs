@@ -27,6 +27,5 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Score = {score}");
     }
 
-    public int Lives { get; }
-
+    public int getLives { get => lives; }
 }

@@ -33,9 +33,13 @@ public class SpawnManager : MonoBehaviour
             animalPrefab[animalIndex].transform.rotation = Quaternion.Euler(0, 180, 0));
 
         float spawnInterval = Random.Range(2, 6);
-
-        if (gameManager.Lives != 0)
+        Debug.Log(1);
+        
+        if (gameManager.getLives > 0)
+        {
             Invoke("SpawnRandomAnimalTop", spawnInterval);
+            Debug.Log(2);
+        }
     }
 
     private void SpawnRandomAnimalFromLeft()
@@ -49,7 +53,7 @@ public class SpawnManager : MonoBehaviour
 
         float spawnInterval = Random.Range(2, 6);
 
-        if (gameManager.Lives != 0)
+        if (gameManager.getLives > 0)
             Invoke("SpawnRandomAnimalFromLeft", spawnInterval);
     }
 
@@ -64,7 +68,7 @@ public class SpawnManager : MonoBehaviour
 
         float spawnInterval = Random.Range(2, 6);
 
-        if (gameManager.Lives != 0)
+        if (gameManager.getLives > 0)
             Invoke("SpawnRandomAnimalFromRight", spawnInterval);
     }
 }

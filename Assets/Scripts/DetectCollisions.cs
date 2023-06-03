@@ -21,7 +21,7 @@ public class DetectCollisions : MonoBehaviour
 
         if (other.CompareTag("Food"))
         {
-            animalHunger.FeedAnamial(1);
+            animalHunger.FeedAnamial(1);    
             Destroy(other.gameObject);
         }
     }
